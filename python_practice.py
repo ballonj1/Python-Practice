@@ -31,3 +31,27 @@ def next_row(last_row):
   return row
 
 pascals_triangle(2)
+
+def next_prime(ary):
+    new_arr = []
+    for num in ary:
+        if prime(num):
+            new_arr.append(next_prime_number(num))
+        else:
+            new_arr.append(num)
+    print new_arr
+
+
+def prime(n):
+    for i in range(2, n):
+        if n % i == 0:
+            return False
+    return True
+
+def next_prime_number(n):
+    n += 1
+    while not prime(n):
+        n += 1
+    return n
+
+next_prime([11,13,17])
